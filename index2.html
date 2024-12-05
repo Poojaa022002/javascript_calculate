@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Proximity Checker</title>
+    <link rel="stylesheet" href="boostrap-css-js/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container w-50 mt-5 p-5 shadow-lg">
+       <div class=" mt-5 text-center shadow-lg">
+       <h2>Number Proximity Checker</h2>
+    </div>
+       <div class="mt-5 text-center" style="font-size: large;">
+       <p>Enter a number :</p>
+       <input type="number" id="inputNumber" placeholder="Enter a number">
+    </div>
+    <div class="text-center mt-5 ">
+        <button class="btn btn-primary" onclick="checkProximity()">Check</button>
+    </div>
+        <div class="mt-4"><h5 id="result"></h5></div>
+    </div>
+
+    <script>
+        function checkProximity() {
+            const number = parseInt(document.getElementById('inputNumber').value);
+            const isWithinRangeOf100 = Math.abs(number - 100) <= 20;
+            const isWithinRangeOf400 = Math.abs(number - 400) <= 20;
+
+            const result = isWithinRangeOf100 || isWithinRangeOf400;
+            document.getElementById('result').innerText = result ? "True: The number is within 20 units of 100 or 400." : "False: The number is not within 20 units of 100 or 400.";
+        }
+    </script>
+</body>
+</html>
